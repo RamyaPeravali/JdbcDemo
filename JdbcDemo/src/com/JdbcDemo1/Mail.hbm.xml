@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+framework will get sequence .it will not consider what we give.i"native" will use the technique
+native to the engine.In oracle it will use a sequence . 
+-->
+
+<hibernate-mapping package="com.JdbcDemo1">
+
+    <class name="Mail" table="Mail" lazy="true">
+        <id name="id" column="M_id"><generator class="sequence">
+        <param name="sequence">mail_seq</param>
+        </generator></id>
+        <property name="username" />
+        <property name="password" />
+            <!-- student_id is a foreign key column in mail  -->
+         <many-to-one name="student" class="Student" column="student_id" cascade="all"></many-to-one> 
+    </class>
+
+</hibernate-mapping>

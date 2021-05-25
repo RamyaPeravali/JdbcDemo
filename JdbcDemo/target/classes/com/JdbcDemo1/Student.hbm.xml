@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+framework will get sequence .it will not consider what we give.i"native" will use the technique
+native to the engine.In oracle it will use a sequence . 
+-->
+
+<hibernate-mapping package="com.JdbcDemo1">
+
+    <class name="Student" table="Student" lazy="true">
+        <id name="id" column="student_id"><generator class="sequence">
+        <param name="sequence">student_seq</param>
+        </generator></id>
+        <property name="firstName" />
+        <property name="lastname" />
+        <!-- <property name="age"/> -->        
+        <!-- <one-to-one name="address" class="Address" cascade="all"></one-to-one> -->
+    </class>
+
+</hibernate-mapping>
